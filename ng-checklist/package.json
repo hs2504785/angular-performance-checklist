@@ -1,0 +1,91 @@
+{
+  "name": "angular-performance-checklist",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve -o",
+    "build": "ng build",
+    "build:ssr": "ng build --prod && ng run angular-checklist:server -- --output-hashing=none",
+    "prerender": "npm run build:ssr && ts-node prerender.ts",
+    "serve:ssr": "npm run prerender && http-server dist/browser",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "cypress open",
+    "build-content": "ts-node-dev --no-notify --respawn ./tools/build-checklist.ts",
+    "build-content:watch": "nodemon",
+    "ci": "npm run build-content && ng build --prod",
+    "format:base": "prettier \"{src,tools,cypress}/**/*{.ts,.js,.json,.html}\"",
+    "format:check": "npm run format:base -- --list-different",
+    "format:fix": "npm run format:base -- --write"
+  },
+  "engines": {
+    "node": "14.15.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint --env HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,tools}/**/*{.ts,.js,.json,.html}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~11.2.8",
+    "@angular/cdk": "^11.2.11",
+    "@angular/common": "~11.2.8",
+    "@angular/compiler": "~11.2.8",
+    "@angular/core": "~11.2.8",
+    "@angular/forms": "~11.2.8",
+    "@angular/material": "^11.2.11",
+    "@angular/platform-browser": "~11.2.8",
+    "@angular/platform-browser-dynamic": "~11.2.8",
+    "@angular/router": "~11.2.8",
+    "@fortawesome/angular-fontawesome": "^0.8.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@ngrx/router-store": "^11.1.1",
+    "@ngrx/store": "^11.1.1",
+    "@ngrx/store-devtools": "^11.1.1",
+    "core-js": "^3.8.3",
+    "fuzzysort": "^1.1.4",
+    "highlight.js": "^10.7.2",
+    "lodash.groupby": "^4.6.0",
+    "ngrx-store-freeze": "^0.2.4",
+    "ngrx-store-localstorage": "^11.0.0",
+    "normalize.css": "^8.0.1",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.11.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1102.7",
+    "@angular/cli": "~11.2.7",
+    "@angular/compiler-cli": "~11.2.8",
+    "@types/highlight.js": "^10.1.0",
+    "@types/jasmine": "~3.6.0",
+    "@types/node": "^12.20.11",
+    "codelyzer": "^6.0.0",
+    "concurrently": "^6.0.2",
+    "gray-matter": "^4.0.3",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~6.1.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "nodemon": "^2.0.7",
+    "protractor": "~7.0.0",
+    "shorthash": "0.0.2",
+    "ts-node": "~8.3.0",
+    "ts-node-dev": "^1.1.6",
+    "tslint": "~6.1.0",
+    "typescript": "~4.1.5"
+  }
+}

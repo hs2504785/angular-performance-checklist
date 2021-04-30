@@ -1,0 +1,21 @@
+@import '../../../scss/variables';
+
+:host {
+  display: block;
+  display: flex;
+  align-items: center;
+  padding: 4px 4px 4px 0;
+}
+
+mat-checkbox {
+  margin-right: 8px;
+}
+
+ac-checklist-favorite-button {
+  margin-left: auto;
+}
+
+.done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

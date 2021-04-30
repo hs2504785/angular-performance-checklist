@@ -1,0 +1,55 @@
+@import '../../../scss//mixins';
+@import '../../../scss//variables';
+
+$vertical-margin: 6px;
+
+:host {
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+}
+
+.authors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: -$vertical-margin;
+
+  span:first-child {
+    margin-top: $vertical-margin;
+    margin-right: 10px;
+  }
+
+  .ampersand {
+    margin: 0 5px;
+  }
+}
+
+.author-list {
+  display: flex;
+  align-items: center;
+  margin-top: $vertical-margin;
+}
+
+.author {
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  background: #e2e2e2;
+  border-radius: 15px;
+  padding: 5px 10px;
+  color: rgba(0, 0, 0, 0.5);
+
+  .name {
+    margin: 0 0 0 5px;
+  }
+
+  &:hover {
+    background: mat-color($primary);
+    color: white !important;
+  }
+}
+
+.heart {
+  color: rgba(244, 81, 30, 0.9);
+}
