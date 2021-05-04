@@ -51,7 +51,7 @@
             <mat-checkbox
               *ngIf="editMode"
               color="primary"
-              (click)="toggleCategory(category)"
+              (change)="toggleCategory(category)"
               [checked]="category.enabled"
             ></mat-checkbox>
           </nav>
