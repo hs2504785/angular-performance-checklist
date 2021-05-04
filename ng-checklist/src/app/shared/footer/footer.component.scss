@@ -26,10 +26,6 @@ mat-toolbar {
   font-size: inherit;
   cursor: pointer;
 
-  fa-icon {
-    margin-right: 5px;
-  }
-
   &:hover {
     color: mat-color($primary);
   }

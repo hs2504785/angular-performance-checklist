@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PreloadAllModules, RouterModule } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -29,7 +27,6 @@ import { META_REDUCERS, ROOT_REDUCER } from './state/app.state';
     AppRoutingModule,
     StoreRouterConnectingModule.forRoot(),
     CustomMaterialModule,
-    FontAwesomeModule
   ],
   bootstrap: [AppComponent]
 })
