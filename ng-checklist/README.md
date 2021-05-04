@@ -10,7 +10,7 @@ All done! https://hs2504785.github.io/angular-performance-checklist/
 
 <h1>
     <img width="35" valign="bottom" src="https://angular-checklist.io/assets/angular-checklist.png">
-    Angular Checklist
+    Angular Performance Checklist
 </h1>
 
 This repo contains the code for [angular-checklist.io](https://angular-checklist.io).
