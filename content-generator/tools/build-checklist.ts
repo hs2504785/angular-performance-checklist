@@ -2,7 +2,7 @@ import { join } from 'path';
 import { buildChecklist, dumpDataToDisk, printSuccess } from './utils';
 
 const CONTENT_FOLDER = join(__dirname, '../content');
-const ASSET_FOLDER = join(__dirname, '../../angular-performance-checklist/src/assets');
+const ASSET_FOLDER = join(__dirname, '../../ng-checklist/src/app/checklist');
 
 buildChecklist(CONTENT_FOLDER).then(checklist => {
   if (checklist) {

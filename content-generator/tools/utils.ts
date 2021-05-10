@@ -92,8 +92,8 @@ export const dumpDataToDisk = (filename: string, data: any, dest: string) => {
   }
 
   try {
-    writeFileSync(join(dest, `${filename}.json`), generateJSON(data));
-    printSuccess(`${filename}.json created`);
+    writeFileSync(join(dest, `${filename}.ts`), generateJSON(data));
+    printSuccess(`${filename}.ts created`);
   } catch (error) {
     console.log(error);
   }
@@ -104,7 +104,7 @@ export const cleanFileName = (fileName: string) => {
 };
 
 export const generateJSON = (data: any) => {
-  return JSON.stringify(data, null, 2);
+  return `export const CHECKLIST = ${JSON.stringify(data, null, 2)}`;
 };
 
 export const readdirAsync = (path: string): Promise<Array<string>> => {
