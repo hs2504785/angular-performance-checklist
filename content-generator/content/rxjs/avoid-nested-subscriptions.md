@@ -14,12 +14,14 @@ Let's consider the following example: In an e-commerce system we are fetching a 
 
 A naive solution could look like this:
 
-```ts
-fetchProduct(1).subscribe(product => {
-  fetchSimilarProducts(product).subscribe(similarProducts => {
-    ...
+```javascript
+fetchProducts() {
+  fetchProduct(1).subscribe(product => {
+    fetchSimilarProducts(product).subscribe(similarProducts => {
+      ...
+    });
   });
-});
+}
 ```
 
 We first fetch the product and once the request is resolved we fetch similar products inside the subscribe block of the first, most outer observable.

@@ -27,3 +27,10 @@ This is considered good _action hygiene_. The format for action names should be 
 # Resources
 
 - [Good action hygiene](https://www.youtube.com/watch?v=JmnsEvoy-gY) by Mike Ryan
+
+    1. Do not reuse actions
+    2. Use Descriptive action types
+    3. Avoid action subtyping
+    4. Write action first
+
+
