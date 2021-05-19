@@ -83,7 +83,23 @@ export class PeopleModule {}
 export class AppModule {}
 ```
 
-Alternatively, we can use lazy loading as described [here](/default/checklist/router/Z165VzV).
+Alternatively, we can use lazy loading as described here...
+
+```ts
+@NgModule({
+  ...
+  imports: [
+    // import our new feature module
+    {
+      path: 'feature',
+      loadChildren: () =>
+        import('./feature/feature.module').then((m) => m.FeatureModule),
+    },
+  ]
+  ...
+})
+export class AppModule {}
+````
 
 ## What if something needs to be reused elsewhere?
 
