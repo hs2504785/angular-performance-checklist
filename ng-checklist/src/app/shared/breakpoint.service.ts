@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
 export enum Breakpoint {
   Small = 'small$',
   Medium = 'medium$',
-  Desktop = 'desktop$'
+  Desktop = 'desktop$',
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BreakpointService {
   private _small$: Observable<boolean>;
@@ -25,7 +25,7 @@ export class BreakpointService {
     return {
       [Breakpoint.Small]: this._small$,
       [Breakpoint.Medium]: this._medium$,
-      [Breakpoint.Desktop]: this._desktop$
+      [Breakpoint.Desktop]: this._desktop$,
     };
   }
 
@@ -35,20 +35,17 @@ export class BreakpointService {
   }
 
   private setupBreakpoints() {
-    const small$ = this.breakPointObserver.observe(['(max-width: 600px)']).pipe(
-      pluck<BreakpointState, boolean>('matches'),
-      shareReplay(1)
-    );
+    const small$ = this.breakPointObserver
+      .observe(['(max-width: 600px)'])
+      .pipe(pluck<BreakpointState, any>('matches'), shareReplay(1));
 
-    const medium$ = this.breakPointObserver.observe(['(min-width: 600px) and (max-width: 992px)']).pipe(
-      pluck<BreakpointState, boolean>('matches'),
-      shareReplay(1)
-    );
+    const medium$ = this.breakPointObserver
+      .observe(['(min-width: 600px) and (max-width: 992px)'])
+      .pipe(pluck<BreakpointState, any>('matches'), shareReplay(1));
 
-    const desktop$ = this.breakPointObserver.observe(['(min-width: 992px)']).pipe(
-      pluck<BreakpointState, boolean>('matches'),
-      shareReplay(1)
-    );
+    const desktop$ = this.breakPointObserver
+      .observe(['(min-width: 992px)'])
+      .pipe(pluck<BreakpointState, any>('matches'), shareReplay(1));
 
     this._small$ = small$;
     this._medium$ = medium$;

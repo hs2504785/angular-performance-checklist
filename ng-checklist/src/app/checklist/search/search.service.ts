@@ -15,18 +15,18 @@ import { IndexEntry } from './search.models';
 export class SearchService {
   private index: Array<IndexEntry<ChecklistItem | CategoryEntity>>;
 
-  private options: Fuzzysort.KeyOptions = {
+  private options: any = {
     key: 'value.title',
     allowTypo: false,
     limit: 100,
-    threshold: -10000
+    threshold: -10000,
   };
 
   constructor(private store: Store<ApplicationState>, private actions: ActionsSubject) {
-    const actions$ = this.actions.pipe(filter(action => action.type === ProjectsActionTypes.TOGGLE_CATEGORY));
+    const actions$ = this.actions.pipe(filter((action) => action.type === ProjectsActionTypes.TOGGLE_CATEGORY));
 
     merge(actions$, of('INIT INDEX'))
-      .pipe(switchMap(_ => this.getStoreData()))
+      .pipe(switchMap((_) => this.getStoreData()))
       .subscribe(([categories, items, projectId]) => {
         this.index = this.createIndex(categories, items, projectId);
       });
@@ -37,7 +37,7 @@ export class SearchService {
   }
 
   createIndex(categoryEntities: CategoryEntities, itemEntities: ItemEntities, projectId: string) {
-    const categories = Object.values(categoryEntities).map(category => this.compileCategory(category, projectId));
+    const categories = Object.values(categoryEntities).map((category) => this.compileCategory(category, projectId));
     const items = categories.reduce(this.compileCategoryItems(itemEntities, projectId), []);
     return [...categories, ...items];
   }
@@ -53,18 +53,18 @@ export class SearchService {
   private compileCategory(category: CategoryEntity, projectId: string) {
     return {
       value: category,
-      link: `${this.getBaseLink(projectId)}/${category.slug}`
+      link: `${this.getBaseLink(projectId)}/${category.slug}`,
     };
   }
 
   private compileCategoryItems(itemEntities: ItemEntities, projectId: string) {
     return (acc: Array<IndexEntry<ChecklistItem>>, category: IndexEntry<CategoryEntity>) => {
       return acc.concat(
-        category.value.items.map(itemId => {
+        category.value.items.map((itemId) => {
           const checklistItem = itemEntities[itemId];
           return {
             value: checklistItem,
-            link: `${this.getBaseLink(projectId)}/${checklistItem.category}/${checklistItem.id}`
+            link: `${this.getBaseLink(projectId)}/${checklistItem.category}/${checklistItem.id}`,
           };
         })
       );

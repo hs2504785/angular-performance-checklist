@@ -5,6 +5,7 @@ export const CHECKLIST = {
       "summary": "This category summarizes best practices regarding architecture.",
       "slug": "architecture",
       "items": [
+        "20Q2w3",
         "Z2guUQd",
         "Z1ohpIo",
         "1pQWxn",
@@ -114,6 +115,13 @@ export const CHECKLIST = {
     }
   },
   "items": {
+    "20Q2w3": {
+      "id": "20Q2w3",
+      "slug": "hello-hemant",
+      "category": "architecture",
+      "title": "Hey Hemant Sir",
+      "content": "<h3>Problem</h3>\n<p>Awesome</p>\n<p>lorem</p>\n"
+    },
     "Z2guUQd": {
       "id": "Z2guUQd",
       "slug": "never-mutate-objects",
