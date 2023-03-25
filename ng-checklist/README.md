@@ -2,7 +2,7 @@
 
 ```
 npm install -g angular-cli-ghpages
-ng build --prod --base-href "https://hs2504785.github.io/angular-performance-checklist/"
+ng build --base-href "https://hs2504785.github.io/angular-performance-checklist/"
 ngh --dir=dist/angular-performance-checklist --message="My First deploy"
 ```
 
